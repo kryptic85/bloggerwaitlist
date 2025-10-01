@@ -85,7 +85,7 @@
           <div id="waitlist-error" style="display:none; margin-top:10px; color:#ffb4b4; font-weight:600;">Hmm, something went wrong. Please try again or use the full form below.</div>
           <p style="color:var(--muted); font-size:14px; margin:10px 6px 0">
             Want to share more details (website, niche, posting cadence)? Fill our full form:
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform?usp=sharing&ouid=107078637069770724550" target="_blank" rel="noopener">Open full waitlist form →</a>
+            <a id="waitlist-full-link" href="https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform?usp=pp_url" target="_blank" rel="noopener">Open full waitlist form →</a>
           </p>
         </div>
 
@@ -158,6 +158,25 @@
       // TODO: Replace with your Google Form email field ID (looks like entry.1234567890).
       const GOOGLE_FORM_EMAIL_ENTRY = 'entry.882740376'; // e.g., entry.1234567890
       const GOOGLE_FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform';
+      const fullFormLink = document.getElementById('waitlist-full-link');
+
+      const buildPrefilledUrl = (email) => {
+        const url = new URL(GOOGLE_FORM_BASE);
+        url.searchParams.set('usp', 'pp_url');
+        if (email) {
+          url.searchParams.set(GOOGLE_FORM_EMAIL_ENTRY, email);
+        }
+        return url.toString();
+      };
+
+      if (fullFormLink) {
+        const syncFullFormHref = () => {
+          const email = (emailInput.value || '').trim();
+          fullFormLink.setAttribute('href', buildPrefilledUrl(email));
+        };
+        syncFullFormHref();
+        emailInput.addEventListener('input', syncFullFormHref);
+      }
 
       form.addEventListener('submit', async function(e){
         e.preventDefault();
@@ -176,10 +195,7 @@
             }
           } else {
             // No external endpoint configured: redirect to Google Form with email prefilled
-            const url = new URL(GOOGLE_FORM_BASE);
-            url.searchParams.set('usp', 'pp_url');
-            url.searchParams.set(GOOGLE_FORM_EMAIL_ENTRY, email);
-            window.location.href = url.toString();
+            window.location.href = buildPrefilledUrl(email);
           }
         } catch (err) {
           if (errorEl) errorEl.style.display = 'block';
