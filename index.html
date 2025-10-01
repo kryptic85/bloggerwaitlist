@@ -25,7 +25,7 @@
     body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 600px at 50% -20%, #1a2540 0%, var(--bg) 50%), var(--bg); color: var(--fg); }
     a { color: var(--accent); text-decoration: none; }
     .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .2px; }
     .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), #a88bff); box-shadow: var(--shadow); display:grid; place-items:center; font-weight:800; color:#0a1020; }
     .cta { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; background: linear-gradient(180deg, #2a67ff, #1f57de); border-radius: 12px; color: white; font-weight: 700; border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
@@ -36,9 +36,8 @@
     .badges { display:flex; flex-wrap: wrap; gap:10px; margin: 16px 0 26px; }
     .badge { border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, var(--card), var(--card-2)); border-radius: 999px; padding: 8px 12px; color: #d7e2ff; font-weight: 600; font-size: 14px; }
     .card { background: linear-gradient(180deg, var(--card), var(--card-2)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
-    .form { display: grid; gap: 10px; grid-template-columns: 1fr auto; background: rgba(255,255,255,.03); border-radius: 14px; padding: 10px; border: 1px solid rgba(255,255,255,.06); }
-    .form input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); background: #0b1326; color: var(--fg); }
-    .form button { padding: 12px 16px; border-radius: 10px; background: linear-gradient(180deg, #2a67ff, #1f57de); color: #fff; font-weight: 700; border: none; cursor: pointer; }
+    .waitlist-button { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 16px; border-radius: 12px; background: linear-gradient(180deg, #2a67ff, #1f57de); color: #fff; font-weight: 700; border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); text-decoration: none; text-align: center; }
+    .waitlist-button:hover { background: linear-gradient(180deg, #3a76ff, #295be3); }
     .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; margin-top:24px; }
     @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
     .kpi { display:flex; align-items:center; gap:12px; color:#d7e2ff; }
@@ -58,7 +57,6 @@
         <div class="logo">AI</div>
         <div>AI SEO Blog Generator</div>
       </div>
-      <a class="cta" href="#waitlist">Join Waitlist</a>
     </header>
 
     <section class="hero">
@@ -73,20 +71,7 @@
         </div>
 
         <div id="waitlist" class="card">
-          <!-- INLINE EMAIL CAPTURE (Formspree) -->
-          <!-- Replace FORM_ENDPOINT with your Formspree endpoint (e.g., https://formspree.io/f/abcdxyz) -->
-          <form id="waitlist-form" action="FORM_ENDPOINT" method="POST" class="form">
-            <input type="email" id="waitlist-email" name="email" placeholder="you@company.com" required aria-label="Email" />
-            <!-- Honeypot to reduce spam -->
-            <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off" />
-            <button type="submit">Join the Waitlist</button>
-          </form>
-          <div id="waitlist-success" style="display:none; margin-top:10px; color:#9ff59f; font-weight:600;">Thanks! You're on the list. Check your inbox for a confirmation.</div>
-          <div id="waitlist-error" style="display:none; margin-top:10px; color:#ffb4b4; font-weight:600;">Hmm, something went wrong. Please try again or use the full form below.</div>
-          <p style="color:var(--muted); font-size:14px; margin:10px 6px 0">
-            Want to share more details (website, niche, posting cadence)? Fill our full form:
-            <a id="waitlist-full-link" href="https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform?usp=pp_url" target="_blank" rel="noopener">Open full waitlist form →</a>
-          </p>
+          <a class="waitlist-button" href="https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform?usp=pp_url" target="_blank" rel="noopener">Join the Waitlist</a>
         </div>
 
         <div class="grid">
@@ -141,67 +126,6 @@
   </div>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Inline submission logic:
-    // If FORM_ENDPOINT is replaced with a real endpoint (Formspree/Getform/etc.), we POST there.
-    // Otherwise, we redirect the user to the Google Form with their email prefilled via entry ID.
-    (function(){
-      const form = document.getElementById('waitlist-form');
-      const emailInput = document.getElementById('waitlist-email');
-      const successEl = document.getElementById('waitlist-success');
-      const errorEl = document.getElementById('waitlist-error');
-
-      const FORM_ENDPOINT = form.getAttribute('action');
-
-      // Replace with your Google Form "pre-filled" entry ID for the Email field.
-      // How to find it: In Google Forms → Get pre-filled link → enter a sample email → Get link → copy URL and look for entry.XXXXXXXX.
-      // TODO: Replace with your Google Form email field ID (looks like entry.1234567890).
-      const GOOGLE_FORM_EMAIL_ENTRY = 'entry.882740376'; // e.g., entry.1234567890
-      const GOOGLE_FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform';
-      const fullFormLink = document.getElementById('waitlist-full-link');
-
-      const buildPrefilledUrl = (email) => {
-        const url = new URL(GOOGLE_FORM_BASE);
-        url.searchParams.set('usp', 'pp_url');
-        if (email) {
-          url.searchParams.set(GOOGLE_FORM_EMAIL_ENTRY, email);
-        }
-        return url.toString();
-      };
-
-      if (fullFormLink) {
-        const syncFullFormHref = () => {
-          const email = (emailInput.value || '').trim();
-          fullFormLink.setAttribute('href', buildPrefilledUrl(email));
-        };
-        syncFullFormHref();
-        emailInput.addEventListener('input', syncFullFormHref);
-      }
-
-      form.addEventListener('submit', async function(e){
-        e.preventDefault();
-        const email = (emailInput.value || '').trim();
-        if (!email) return;
-
-        try {
-          if (FORM_ENDPOINT && FORM_ENDPOINT !== 'FORM_ENDPOINT') {
-            const data = new FormData(form);
-            const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-            if (res.ok) {
-              form.style.display = 'none';
-              if (successEl) successEl.style.display = 'block';
-            } else {
-              if (errorEl) errorEl.style.display = 'block';
-            }
-          } else {
-            // No external endpoint configured: redirect to Google Form with email prefilled
-            window.location.href = buildPrefilledUrl(email);
-          }
-        } catch (err) {
-          if (errorEl) errorEl.style.display = 'block';
-        }
-      });
-    })();
   </script>
 </body>
 </html>
