@@ -89,29 +89,6 @@
           </p>
         </div>
 
-        <script>
-          (function(){
-            const form = document.getElementById('waitlist-form');
-            if(!form) return;
-            form.addEventListener('submit', async function(e){
-              e.preventDefault();
-              const endpoint = form.getAttribute('action');
-              const data = new FormData(form);
-              try {
-                const res = await fetch(endpoint, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-                if (res.ok) {
-                  form.style.display = 'none';
-                  document.getElementById('waitlist-success').style.display = 'block';
-                } else {
-                  document.getElementById('waitlist-error').style.display = 'block';
-                }
-              } catch(err){
-                document.getElementById('waitlist-error').style.display = 'block';
-              }
-            });
-          })();
-        </script>
-
         <div class="grid">
           <div class="kpi card"><b>SEO‑Optimized</b> — Titles, H1/H2, meta, internal links</div>
           <div class="kpi card"><b>Auto Cadence</b> — Weekly or monthly content calendar</div>
