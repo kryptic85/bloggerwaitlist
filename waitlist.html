@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI SEO Blog Generator — Early Access</title>
+  <meta name="description" content="AI app that generates SEO‑optimized blog posts for businesses, schedules them automatically, and helps grow DR with backlink suggestions. Join the waitlist." />
+  <meta property="og:title" content="AI SEO Blog Generator — Early Access" />
+  <meta property="og:description" content="Generate SEO‑optimized blogs, auto‑schedule posts, and grow Domain Rating (DR) with backlink ideas. Join the waitlist." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --fg: #eaf0ff;
+      --muted: #a9b3c8;
+      --accent: #6aa6ff;
+      --accent-2: #7ee787;
+      --card: #101a2f;
+      --card-2: #0e1629;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 600px at 50% -20%, #1a2540 0%, var(--bg) 50%), var(--bg); color: var(--fg); }
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .2px; }
+    .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), #a88bff); box-shadow: var(--shadow); display:grid; place-items:center; font-weight:800; color:#0a1020; }
+    .cta { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; background: linear-gradient(180deg, #2a67ff, #1f57de); border-radius: 12px; color: white; font-weight: 700; border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
+    .hero { display: grid; grid-template-columns: 1.08fr .92fr; gap: 28px; padding: 38px 0 22px; }
+    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; } }
+    h1 { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.08; margin: 0 0 14px; }
+    .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 0 0 20px; }
+    .badges { display:flex; flex-wrap: wrap; gap:10px; margin: 16px 0 26px; }
+    .badge { border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, var(--card), var(--card-2)); border-radius: 999px; padding: 8px 12px; color: #d7e2ff; font-weight: 600; font-size: 14px; }
+    .card { background: linear-gradient(180deg, var(--card), var(--card-2)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+    .form { display: grid; gap: 10px; grid-template-columns: 1fr auto; background: rgba(255,255,255,.03); border-radius: 14px; padding: 10px; border: 1px solid rgba(255,255,255,.06); }
+    .form input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); background: #0b1326; color: var(--fg); }
+    .form button { padding: 12px 16px; border-radius: 10px; background: linear-gradient(180deg, #2a67ff, #1f57de); color: #fff; font-weight: 700; border: none; cursor: pointer; }
+    .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; margin-top:24px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    .kpi { display:flex; align-items:center; gap:12px; color:#d7e2ff; }
+    .kpi b { font-size: 20px; }
+    .section { margin-top: 48px; }
+    .section h2 { margin: 0 0 12px; font-size: clamp(22px, 3.3vw, 30px); }
+    .list { display:grid; gap:12px; }
+    .list .li { display:flex; gap:12px; align-items:flex-start; }
+    .li i { width: 28px; height: 28px; border-radius: 8px; display:grid; place-items:center; background:#112043; color:#9ec1ff; font-style: normal; font-weight: 800; }
+    footer { margin-top: 60px; color: var(--muted); font-size: 14px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div>AI SEO Blog Generator</div>
+      </div>
+      <a class="cta" href="#waitlist">Join Waitlist</a>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <h1>Generate SEO‑ready blogs, <span style="color:var(--accent-2)">auto‑schedule</span> them, and grow your <span style="color:var(--accent)">Domain Rating (DR)</span>.</h1>
+        <p class="lead">An AI tool for businesses that publishes high‑quality, keyword‑targeted posts on autopilot and suggests backlink opportunities to lift rankings.</p>
+        <div class="badges">
+          <div class="badge">🗓 Auto Scheduler</div>
+          <div class="badge">🔎 Fully SEO‑Optimized</div>
+          <div class="badge">🔗 Backlink Ideas for DR</div>
+          <div class="badge">🏷️ Niche‑Tailored Content</div>
+        </div>
+
+        <div id="waitlist" class="card">
+          <!-- INLINE EMAIL CAPTURE (Formspree) -->
+          <!-- Replace FORM_ENDPOINT with your Formspree endpoint (e.g., https://formspree.io/f/abcdxyz) -->
+          <form id="waitlist-form" action="FORM_ENDPOINT" method="POST" class="form">
+            <input type="email" id="waitlist-email" name="email" placeholder="you@company.com" required aria-label="Email" />
+            <!-- Honeypot to reduce spam -->
+            <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off" />
+            <button type="submit">Join the Waitlist</button>
+          </form>
+          <div id="waitlist-success" style="display:none; margin-top:10px; color:#9ff59f; font-weight:600;">Thanks! You're on the list. Check your inbox for a confirmation.</div>
+          <div id="waitlist-error" style="display:none; margin-top:10px; color:#ffb4b4; font-weight:600;">Hmm, something went wrong. Please try again or use the full form below.</div>
+          <p style="color:var(--muted); font-size:14px; margin:10px 6px 0">
+            Want to share more details (website, niche, posting cadence)? Fill our full form:
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform?usp=sharing&ouid=107078637069770724550" target="_blank" rel="noopener">Open full waitlist form →</a>
+          </p>
+        </div>
+
+        <script>
+          (function(){
+            const form = document.getElementById('waitlist-form');
+            if(!form) return;
+            form.addEventListener('submit', async function(e){
+              e.preventDefault();
+              const endpoint = form.getAttribute('action');
+              const data = new FormData(form);
+              try {
+                const res = await fetch(endpoint, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+                if (res.ok) {
+                  form.style.display = 'none';
+                  document.getElementById('waitlist-success').style.display = 'block';
+                } else {
+                  document.getElementById('waitlist-error').style.display = 'block';
+                }
+              } catch(err){
+                document.getElementById('waitlist-error').style.display = 'block';
+              }
+            });
+          })();
+        </script>
+
+        <div class="grid">
+          <div class="kpi card"><b>SEO‑Optimized</b> — Titles, H1/H2, meta, internal links</div>
+          <div class="kpi card"><b>Auto Cadence</b> — Weekly or monthly content calendar</div>
+          <div class="kpi card"><b>DR Growth</b> — Backlink & outreach suggestions</div>
+        </div>
+      </div>
+
+      <div class="right card">
+        <h3 style="margin-top:4px">How it works</h3>
+        <div class="list" style="margin-top:12px">
+          <div class="li"><i>1</i><div><b>Tell us your niche & keywords.</b><br/>We’ll map content pillars and generate briefs aligned to search intent.</div></div>
+          <div class="li"><i>2</i><div><b>AI drafts + on‑page SEO.</b><br/>We produce structured posts with headings, meta, schema suggestions, and internal links.</div></div>
+          <div class="li"><i>3</i><div><b>Auto‑schedule to your CMS.</b><br/>Keep a consistent cadence with a built‑in content calendar.</div></div>
+          <div class="li"><i>4</i><div><b>Grow DR with backlinks.</b><br/>We surface backlink ideas & lightweight outreach prompts to improve authority.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What you get</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Auto Scheduler</h3>
+          <p>Always‑on publishing rhythm. Queue weekly or monthly posts and never miss a beat.</p>
+        </div>
+        <div class="card">
+          <h3>Complete SEO</h3>
+          <p>Keyword targeting, headings, meta descriptions, readability, internal linking, and optional schema.</p>
+        </div>
+        <div class="card">
+          <h3>DR & Backlinks</h3>
+          <p>Ideas for backlink acquisition to lift your Domain Rating (DR) and search visibility over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <div class="list">
+        <div class="li"><i>Q</i><div><b>What is Domain Rating (DR)?</b><br/>DR is a 0–100 score (from tools like Ahrefs) that estimates a site’s backlink authority. Higher DR often correlates with stronger ability to rank; we surface outreach ideas to help grow it.</div></div>
+        <div class="li"><i>Q</i><div><b>Is the content unique?</b><br/>Yes. Drafts are generated uniquely per site and can be human‑edited before publishing.</div></div>
+        <div class="li"><i>Q</i><div><b>Which CMS do you support?</b><br/>We’re targeting WordPress and Webflow first, with more coming. You can also export Markdown/HTML.</div></div>
+        <div class="li"><i>Q</i><div><b>When can I try it?</b><br/>Join the waitlist above — early access will roll out in waves.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> AI SEO Blog Generator • Early Access
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Inline submission logic:
+    // If FORM_ENDPOINT is replaced with a real endpoint (Formspree/Getform/etc.), we POST there.
+    // Otherwise, we redirect the user to the Google Form with their email prefilled via entry ID.
+    (function(){
+      const form = document.getElementById('waitlist-form');
+      const emailInput = document.getElementById('waitlist-email');
+      const successEl = document.getElementById('waitlist-success');
+      const errorEl = document.getElementById('waitlist-error');
+
+      const FORM_ENDPOINT = form.getAttribute('action');
+
+      // Replace with your Google Form "pre-filled" entry ID for the Email field.
+      // How to find it: In Google Forms → Get pre-filled link → enter a sample email → Get link → copy URL and look for entry.XXXXXXXX.
+      // TODO: Replace with your Google Form email field ID (looks like entry.1234567890).
+      const GOOGLE_FORM_EMAIL_ENTRY = 'entry.1234567890'; // e.g., entry.1234567890
+      const GOOGLE_FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSd6qSK-CPIWSkxjoUyAeswGE_VAOkeOHPyLPNDdWayaDUFpCA/viewform';
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const email = (emailInput.value || '').trim();
+        if (!email) return;
+
+        try {
+          if (FORM_ENDPOINT && FORM_ENDPOINT !== 'FORM_ENDPOINT') {
+            const data = new FormData(form);
+            const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+            if (res.ok) {
+              form.style.display = 'none';
+              if (successEl) successEl.style.display = 'block';
+            } else {
+              if (errorEl) errorEl.style.display = 'block';
+            }
+          } else {
+            // No external endpoint configured: redirect to Google Form with email prefilled
+            const url = new URL(GOOGLE_FORM_BASE);
+            url.searchParams.set('usp', 'pp_url');
+            url.searchParams.set(GOOGLE_FORM_EMAIL_ENTRY, email);
+            window.location.href = url.toString();
+          }
+        } catch (err) {
+          if (errorEl) errorEl.style.display = 'block';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
